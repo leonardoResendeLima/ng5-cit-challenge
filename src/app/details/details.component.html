@@ -1,9 +1,9 @@
-<div class="container color-light">
+<div class="container color-light" *ngFor="let ch of character">
 	<div class="col align-center">
 		<div>
-			<img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" width="200">
+			<img src="{{ch.thumbnail.path}}.{{ch.thumbnail.extension}}" width="200">
 			<div class="padding-bottom">
-				<span *ngFor="let item of character.urls">
+				<span *ngFor="let item of ch.urls">
 					<a href="{{item.url}}" target="blank">{{item.type | uppercase}}</a> &nbsp;&nbsp;
 				</span>
 
@@ -18,60 +18,60 @@
 						<td>
 							<strong>Id</strong>
 						</td>
-						<td>{{character.id}}</td>
+						<td>{{ch.id}}</td>
 					</tr>
 					<tr>
 						<td>
 							<strong>Name</strong>
 						</td>
-						<td>{{character.name}}</td>
+						<td>{{ch.name}}</td>
 					</tr>
 					<tr>
 						<td>
 							<strong>Description</strong>
 						</td>
-						<td>{{character.description || "None"}}</td>
+						<td>{{ch.description || "None"}}</td>
 					</tr>
 					<tr>
 						<td>
 							<strong>Last Modified</strong>
 						</td>
-						<td>{{character.modified | date : 'dd/MM/yyyy'}}</td>
+						<td>{{ch.modified | date : 'dd/MM/yyyy'}}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<div class="padding-bottom">
-			<strong>Comics Appearance ({{character.comics.available}})</strong>
+			<strong>Comics Appearance ({{ch.comics.available}})</strong>
 
-			<div *ngFor="let item of character.comics.items" class="padding-left">
+			<div *ngFor="let item of ch.comics.items" class="padding-left">
 				{{item.name}}
 			</div>
 
 		</div>
 
 		<div class="padding-bottom">
-			<strong>Series ({{character.series.available}})</strong>
+			<strong>Series ({{ch.series.available}})</strong>
 
-			<div *ngFor="let item of character.series.items" class="padding-left">
+			<div *ngFor="let item of ch.series.items" class="padding-left">
 				{{item.name}}
 			</div>
 
 		</div>
 
 		<div class="padding-bottom">
-				<strong>Events ({{character.events.available}})</strong>
+				<strong>Events ({{ch.events.available}})</strong>
 	
-				<div *ngFor="let item of character.events.items" class="padding-left">
+				<div *ngFor="let item of ch.events.items" class="padding-left">
 					{{item.name}}
 				</div>
 	
 			</div>
 
 			<div class="padding-bottom">
-					<strong>Stories ({{character.stories.available}})</strong>
+					<strong>Stories ({{ch.stories.available}})</strong>
 		
-					<div *ngFor="let item of character.stories.items" class="padding-left">
+					<div *ngFor="let item of ch.stories.items" class="padding-left">
 						{{item.name}}
 					</div>
 		
