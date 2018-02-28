@@ -8,13 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 
 import { HttpClientModule } from "@angular/common/http";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		HomeComponent,
-		DetailsComponent
+		DetailsComponent,
+		NotFoundComponent
 	],
 	imports: [
 		BrowserModule,
