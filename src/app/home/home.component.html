@@ -1,7 +1,6 @@
-<div *ngFor="let character of characters" class="container color-light">
-	<div class="col">
-		<div>
-			<strong>{{character.name}}</strong> &nbsp;<a routerLink="details/{{character.id}}">(More Details...)</a>
-		</div>
-	</div>
+<div *ngFor="let character of characters" class="color-light">
+
+		<strong>{{character.name}}</strong> &nbsp;
+		<a routerLink="details/{{character.id}}">(More Details...)</a>
+
 </div>
