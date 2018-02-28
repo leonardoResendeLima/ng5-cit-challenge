@@ -18,15 +18,16 @@ export class HomeComponent implements OnInit {
 
 	characters;
 	constructor(private http: HttpClient) {
-		this.http.get("http://gateway.marvel.com/v1/public/characters?ts=1000&apikey=8d4fb63f32f1e6c7e6ea1614c26c306d&hash=1c9c679cc29228a724e6be0fe57892e6").subscribe(x => {
-			this.characters = x.data.results;
-		})
+		
 		// this.http.get<Post[]>("https://jsonplaceholder.typicode.com/posts").subscribe(x => {
 		// 	this.posts = x;
 		// 	console.log(this.posts.length);
 		// })
 	}
 	ngOnInit() {
+		this.http.get("http://gateway.marvel.com/v1/public/characters?ts=1000&apikey=8d4fb63f32f1e6c7e6ea1614c26c306d&hash=1c9c679cc29228a724e6be0fe57892e6").subscribe(x => {
+			this.characters = x.data.results;
+		})
 	}
 }
 

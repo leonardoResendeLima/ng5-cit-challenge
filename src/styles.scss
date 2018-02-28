@@ -25,3 +25,58 @@ a {
     color:#fff;
     text-decoration:none;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 50% auto;
+}
+.col {
+	padding: .4em 1.3em;
+}
+.color-dark {
+    background: #2885C4;
+}
+.color-light {
+	background: #57B3F1;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+input.txt {
+    border: 0;
+    padding: 1em;
+    width: 80%;
+    margin-bottom: 2em;
+}
+a.btn {
+    border: 0;
+    display:block;
+    padding:1em 3em;
+    background:#A5F883;
+    color:#003A61;
+    margin-bottom:1em;
+	cursor:pointer;
+	width: 40%;
+}
+a.btn-small{
+	width: 10% !important;
+}
+.life-container {
+    background:#3FA0E1;
+    padding:.5em;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.align-center{
+	text-align:center
+}
+
+.padding-left{
+	padding-left: 30px;
+	width: 100%
+}
+
+.padding-bottom{
+	padding: 10px;
+}

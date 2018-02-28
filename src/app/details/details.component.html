@@ -1,4 +1,83 @@
-<p>
-  details works!
-  Route Params {{character}}
-</p>
+<div class="container color-light">
+	<div class="col align-center">
+		<div>
+			<img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" width="200">
+			<div class="padding-bottom">
+				<span *ngFor="let item of character.urls">
+					<a href="{{item.url}}" target="blank">{{item.type | uppercase}}</a> &nbsp;&nbsp;
+				</span>
+
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="padding-bottom">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<strong>Id</strong>
+						</td>
+						<td>{{character.id}}</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Name</strong>
+						</td>
+						<td>{{character.name}}</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Description</strong>
+						</td>
+						<td>{{character.description || "None"}}</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Last Modified</strong>
+						</td>
+						<td>{{character.modified | date : 'dd/MM/yyyy'}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="padding-bottom">
+			<strong>Comics Appearance ({{character.comics.available}})</strong>
+
+			<div *ngFor="let item of character.comics.items" class="padding-left">
+				{{item.name}}
+			</div>
+
+		</div>
+
+		<div class="padding-bottom">
+			<strong>Series ({{character.series.available}})</strong>
+
+			<div *ngFor="let item of character.series.items" class="padding-left">
+				{{item.name}}
+			</div>
+
+		</div>
+
+		<div class="padding-bottom">
+				<strong>Events ({{character.events.available}})</strong>
+	
+				<div *ngFor="let item of character.events.items" class="padding-left">
+					{{item.name}}
+				</div>
+	
+			</div>
+
+			<div class="padding-bottom">
+					<strong>Stories ({{character.stories.available}})</strong>
+		
+					<div *ngFor="let item of character.stories.items" class="padding-left">
+						{{item.name}}
+					</div>
+		
+				</div>
+	</div>
+
+</div>
+
+<a routerLink="" class="btn btn-small">Return to Home</a>
