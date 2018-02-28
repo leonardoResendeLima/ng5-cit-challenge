@@ -1,0 +1,12 @@
+<div *ngFor="let character of characters" class="container color-light">
+	<!-- <div class="col">
+		<img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" width="150">
+	</div> -->
+	<div class="col">
+		<div>
+			<strong>{{character.name}}</strong>
+		</div>
+		<br>
+		<a routerLink="details/{{character.id}}" class="btn">More Details...</a>
+	</div>
+</div>
