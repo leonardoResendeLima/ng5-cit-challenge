@@ -1,31 +1,27 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { HeroesService } from '../heroes.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HomeComponent', () => {
 	let component: HomeComponent;
 	let fixture: ComponentFixture<HomeComponent>;
+	let service: HeroesService
 
-	//   beforeEach(async(() => {
-	//     TestBed.configureTestingModule({
-	//       declarations: [ HomeComponent ]
-	//     })
-	//     .compileComponents();
-	//   }));
 
-	//   beforeEach(() => {
-	//     fixture = TestBed.createComponent(HomeComponent);
-	//     component = fixture.componentInstance;
-	//     fixture.detectChanges();
-	//   });
+	beforeEach(() => {
+		TestBed.configureTestingModule({
+			imports: [HttpClientTestingModule],
+			providers: [HeroesService]
+		})
+		service = TestBed.get(HeroesService);
+	});
 
-	//   it('should create', () => {
-	//     expect(component).toBeTruthy();
-	//   });
 
-	// it("should load 10 elements from the API", () => {
-	// 	const fixture = TestBed.createComponent(HomeComponent);
-	// 	const app = fixture.debugElement.componentInstance;
-	// 	expect(app.characters.length).toBe(10);
-	// })
+	it("should load 10 elements from the API", () => {
+		service.getHeroes().subscribe(a => {
+			expect(a.data.results.length).toBe(10);
+		})
+	})
 });
