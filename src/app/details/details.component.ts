@@ -12,6 +12,7 @@ import * as _ from "lodash"
 import { MarvelHeroes } from "../../assets/interfaces/marvelHeroes";
 // Config Files
 import { environment } from '../../environments/environment';
+import { HeroesService } from '../heroes.service';
 
 @Component({
 	selector: 'app-details',
@@ -27,7 +28,7 @@ export class DetailsComponent implements OnInit {
 	characterId: string;
 	character;
 
-	constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {
+	constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private service: HeroesService) {
 		// Retrieving id parameter
 		this.route.params.subscribe(res => {
 			if (!res.id)
@@ -50,11 +51,10 @@ export class DetailsComponent implements OnInit {
 			.set("hash", md5)
 
 		// API Call
-		this.http.get<MarvelHeroes>(environment.apiUrl.concat(environment.methods.getHero, this.characterId), { params })
-			.subscribe(data => {
+		this.service.getHero(this.characterId).subscribe(data => {
 				// Setting returned data to class
-				var a: MarvelHeroes = data;
-				this.character = a.data.results;
+				var classHeroes: MarvelHeroes = data;
+				this.character = classHeroes.data.results;
 			})
 	}
 

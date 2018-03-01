@@ -9,6 +9,7 @@ import { DetailsComponent } from './details/details.component';
 
 import { HttpClientModule } from "@angular/common/http";
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HeroesService } from './heroes.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 		AppRoutingModule,
 		HttpClientModule
 	],
-	providers: [],
+	providers: [HeroesService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
